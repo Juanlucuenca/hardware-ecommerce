@@ -1,0 +1,16 @@
+.footer {
+    width: 100%;
+    padding: 1em;
+    @include flexible(flex, column, wrap, space-between, center);
+
+    &-author {
+        color: map-get($map: $palete, $key: "white");
+        margin: 1em 0 0 0;
+        font-weight: 700;
+        font-size: 1.2em;
+
+        &--violet {
+            color: map-get($map: $palete, $key: "primary");
+        }
+    }
+}

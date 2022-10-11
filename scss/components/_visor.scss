@@ -1,0 +1,3 @@
+.visor {
+    @include flexible(flex, row, wrap, center, center)
+}
