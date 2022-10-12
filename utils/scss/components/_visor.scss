@@ -1,3 +1,4 @@
 .visor {
+    margin: 1em;
     @include flexible(flex, row, wrap, center, center)
 }
