@@ -41,9 +41,14 @@ renderProducts()
 
 // Agregar al carrito
 const botones = document.querySelectorAll('.button-addCart')
+const cantidadCart = document.querySelector('#cart-cantidad')
 
 const addToCart = (buttonIndex) => {
     const item = products.find((e, i) => i === buttonIndex)
+
+    cantidadCart.textContent = (cart.length + 1)
+    console.log(cart.length)
+
     cart.push(item)
     console.log(cart)
 }
@@ -59,10 +64,12 @@ botones.forEach((e, i) => {
 
 // Render carrito
 const carrito = document.querySelector('#cart')
+const popupCloseIcon = document.querySelector('#popup-close')
+const popup = document.querySelector('#popup')
+const itemContainer = document.querySelector('.cart-items-container')
+const blackBackground = document.querySelector('#black-back')
 
 const viewCarrito = () => {
-    const popup = document.querySelector('#popup')
-    const blackBackground = document.querySelector('#black-back')
     console.log(popup)
 
     popup.classList.add('cart-view')
@@ -72,15 +79,26 @@ const viewCarrito = () => {
     blackBackground.classList.remove('nodisplay')
 
     cart.forEach(e => {
-        popup.innerHTML += `
+        itemContainer.innerHTML += `
         <div class="cart-item">
-        <div class="productItem-name">${e.name}</div>
-        <div class="productItem-price">${e.price}</div>
-    </div>
+            <div class="productItem-name">${e.name}</div>
+            <div class="productItem-price">${e.price}</div>
+        </div>
         `
     })
 }
 
+const closeCarrito = (e) => {
+    console.log('hiciste click')
+        popup.classList.add('nodisplay')
+        popup.classList.remove('cart-view')
+    
+        blackBackground.classList.add('nodisplay')
+        blackBackground.classList.remove('black-body')
+}
+
+
+popupCloseIcon.addEventListener('click', closeCarrito)
 carrito.addEventListener('click', viewCarrito)
 
 

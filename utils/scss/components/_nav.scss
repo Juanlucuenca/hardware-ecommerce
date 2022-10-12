@@ -21,6 +21,10 @@
         border-radius: 20%;
         padding: .5em;
         color: map-get($map: $palete, $key: "white");
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
