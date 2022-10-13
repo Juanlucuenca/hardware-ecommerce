@@ -6,17 +6,18 @@
         './abstracts/mixins',
         './abstracts/reset';
 
+
 /*
 * Components
 */
 @import
+        './components/container',
         './components/nav',
         './components/productItem',
         './components/footer',
         './components/rrss',
         './components/visor',
         './components/modal';
-
 
 
 @import 

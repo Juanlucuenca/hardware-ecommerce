@@ -1,12 +1,17 @@
 .rrss {
-    @include flexible(flex, row, wrap, space-between, center);
+    width: 100%;
+    @include flexible(flex, row, wrap, flex-end, center);
 
 
     &-icon {
         background-color: map-get($map: $palete, $key: "primary");
-        border-radius: 20%;
+        border-radius: 25%;
         padding: .5em;
-        margin: 0 .5em;
+        margin: 0 .6em;
         color: map-get($map: $palete, $key: "white");
+
+        &--notmargin {
+            margin-right: 0;
+        }
     }
 }

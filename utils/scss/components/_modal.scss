@@ -1,57 +1,65 @@
-.nodisplay {
+.carritoModal--hidden {
     display: none;
+    pointer-events: none;
 }
 
-.cart-view {
+.carritoModal{
+    position: absolute;
     background-color: map-get($map: $palete, $key: "primary");
     width: 60%;
-    max-height: 80%;
-    overflow-x: auto;
-    position: absolute; 
+
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
-    z-index: 1;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.cart-item-container {
-    background-color: aqua;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.popup-close {
-    top: 2%;
-    left: 95%;
-    display: inline;
-    position: sticky;
-
-    color: map-get($map: $palete, $key: 'white');
-    font-size: 1.5em;
-
-    z-index: 200;
-}
-
-.cart-item {
-    width: 50%;
-    margin: 1em;
-    background-color: red;
     z-index: 10;
 
-    display: flex;
-    justify-content: center;
+    &-nav {
+        padding: 1em 1.5em;
+        background-color: lightblue;
+        @include flexible(flex, row, wrap, space-between, center);
+    }
+
+    &-itemsContainer {
+        width: 100%;
+        padding: 1em;
+        max-height: 25em;
+        overflow-y: scroll;
+        background-color: lightcoral;
+        @include flexible(flex, column, nowrap, flex-start, flex-start);
+    }
+
+    &-footer {
+        
+        padding: 1em 1.5em;
+        background-color: lightgreen;
+    }
 }
 
-.black-body {
+.item {
+    width: 100%;
+    padding: 1em;
+    background-color: aqua;
+    margin: .5em 0;
+    @include flexible(flex, row, wrap, center, center);
+
+    &-name {
+        background-color: aquamarine;
+    }
+
+    &-price {
+        background-color: antiquewhite;
+    }
+}
+
+.black-shade {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
     height: 100%;
+}
+
+.black-shade--hidden {
+    display: none;
+    pointer-events: none;
 }

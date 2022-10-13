@@ -63,43 +63,43 @@ botones.forEach((e, i) => {
 
 
 // Render carrito
-const carrito = document.querySelector('#cart')
-const popupCloseIcon = document.querySelector('#popup-close')
-const popup = document.querySelector('#popup')
-const itemContainer = document.querySelector('.cart-items-container')
-const blackBackground = document.querySelector('#black-back')
+// const carrito = document.querySelector('#cart')
+// const popupCloseIcon = document.querySelector('#popup-close')
+// const popup = document.querySelector('#popup')
+// const itemContainer = document.querySelector('.cart-items-container')
+// const blackBackground = document.querySelector('#black-back')
 
-const viewCarrito = () => {
-    console.log(popup)
+// const viewCarrito = () => {
+//     console.log(popup)
 
-    popup.classList.add('cart-view')
-    popup.classList.remove('nodisplay')
+//     popup.classList.add('cart-view')
+//     popup.classList.remove('nodisplay')
     
-    blackBackground.classList.add('black-body')
-    blackBackground.classList.remove('nodisplay')
+//     blackBackground.classList.add('black-body')
+//     blackBackground.classList.remove('nodisplay')
 
-    cart.forEach(e => {
-        itemContainer.innerHTML += `
-        <div class="cart-item">
-            <div class="productItem-name">${e.name}</div>
-            <div class="productItem-price">${e.price}</div>
-        </div>
-        `
-    })
-}
+//     cart.forEach(e => {
+//         itemContainer.innerHTML += `
+//         <div class="cart-item">
+//             <div class="productItem-name">${e.name}</div>
+//             <div class="productItem-price">${e.price}</div>
+//         </div>
+//         `
+//     })
+// }
 
-const closeCarrito = (e) => {
-    console.log('hiciste click')
-        popup.classList.add('nodisplay')
-        popup.classList.remove('cart-view')
+// const closeCarrito = (e) => {
+//     console.log('hiciste click')
+//         popup.classList.add('nodisplay')
+//         popup.classList.remove('cart-view')
     
-        blackBackground.classList.add('nodisplay')
-        blackBackground.classList.remove('black-body')
-}
+//         blackBackground.classList.add('nodisplay')
+//         blackBackground.classList.remove('black-body')
+// }
 
 
-popupCloseIcon.addEventListener('click', closeCarrito)
-carrito.addEventListener('click', viewCarrito)
+// popupCloseIcon.addEventListener('click', closeCarrito)
+// carrito.addEventListener('click', viewCarrito)
 
 
 
