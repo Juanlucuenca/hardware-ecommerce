@@ -74,28 +74,26 @@ botones.forEach( (element, index) => {
 const closeModal               = document.querySelector('#carritoModal-close')
 
 const openAndCloseModalCart    = (action) => {
-    
+
     const carritoModal         = document.querySelector('#carritoModal')
 
     const shadeBlackBackground = document.querySelector('#shadeBackground')
 
     if (action === "open") {
-        carritoModal.classList.add("carritoModal")
-        carritoModal.classList.remove("carritoModal--hidden")
+        carritoModal.classList.add('carritoModal')
+        carritoModal.classList.remove('carritoModal--hidden')
 
-        shadeBlackBackground.classList.add("black-shade")
-        shadeBlackBackground.classList.remove("black-shade--hidden")
+        shadeBlackBackground.classList.add('black-shade')
+        shadeBlackBackground.classList.remove('black-shade--hidden')
     }
 
-    if (action === "close") {
-        carritoModal.classList.remove("carritoModal")
-        carritoModal.classList.add("carritoModal--hidden")
+    if (action === 'close') {
+        carritoModal.classList.remove('carritoModal')
+        carritoModal.classList.add('carritoModal--hidden')
 
-        shadeBlackBackground.classList.remove("black-shade")
-        shadeBlackBackground.classList.add("black-shade--hidden")
+        shadeBlackBackground.classList.remove('black-shade')
+        shadeBlackBackground.classList.add('black-shade--hidden')
     }
-
-
 }
 
 iconCart.addEventListener('click', () => openAndCloseModalCart("open"))
