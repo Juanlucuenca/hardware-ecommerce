@@ -7,7 +7,7 @@
     margin: 1em;
     padding: 1em;
 
-    @include flexible(flex, column, nowrap, space-between, center);
+    @include flexible(flex, row, wrap, space-between, center);
 
     &-img {
         background-color: var(--secondary-color);
