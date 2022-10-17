@@ -3,7 +3,7 @@
 */
 :root {
   --negro: #181818;
-  --tipo-principal: 'Silkscreen', cursive; }
+  --tipo-principal: 'Exo 2', sans-serif; }
 
 * {
   margin: 0;
@@ -98,22 +98,22 @@ body {
   justify-content: space-around;
   align-items: center; }
   .nav-logo {
-    color: #F2F2F2;
-    font-weight: 700;
-    font-size: 1.5em;
-    letter-spacing: .2em; }
+    color: #EEF2E6;
+    font-weight: 800;
+    font-size: 2em;
+    letter-spacing: .1em; }
     .nav-logo--violet {
-      color: #8758FF; }
+      color: #1C6758; }
   .nav-cart {
-    width: 3em;
-    background-color: #8758FF;
-    border-radius: 15%;
+    background-color: #1C6758;
+    border-radius: 25%;
     padding: .5em;
-    color: #F2F2F2;
+    color: #EEF2E6;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
-    align-items: center; }
+    align-items: center;
+    gap: 5px; }
 
 .productItem {
   background-color: lightgoldenrodyellow;
@@ -140,36 +140,32 @@ body {
   color: #181818; }
 
 .footer {
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center; }
   .footer-author {
-    color: #F2F2F2;
-    margin-top: 1em;
-    font-weight: 700;
-    font-size: 1.2em; }
+    color: #EEF2E6;
+    margin-top: .5em;
+    font-weight: 800;
+    font-size: 1.35em;
+    letter-spacing: .1em; }
     .footer-author--violet {
-      color: #8758FF;
-      border-bottom: 0.2em solid #8758FF; }
-    .footer-author--bordertop {
-      border-top: 0.2em solid #F2F2F2; }
+      color: #1C6758; }
 
 .rrss {
   width: 100%;
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center; }
   .rrss-icon {
-    background-color: #8758FF;
-    border-radius: 25%;
+    background-color: #1C6758;
+    border-radius: 15%;
     padding: .5em;
-    margin: 0 .6em;
-    color: #F2F2F2; }
-    .rrss-icon--notmargin {
-      margin-right: 0; }
+    margin: 0 .5em;
+    color: #EEF2E6; }
 
 .productsView {
   margin: 1em;
@@ -184,7 +180,7 @@ body {
 
 .carritoModal {
   position: absolute;
-  background-color: #8758FF;
+  background-color: #1C6758;
   width: 60%;
   left: 50%;
   top: 50%;

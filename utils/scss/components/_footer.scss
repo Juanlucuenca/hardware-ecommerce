@@ -1,20 +1,16 @@
 .footer {
-    margin-bottom: 1.5em;
+    margin-bottom: 1em;
     @include flexible(flex, column, nowrap, center, center);
 
     &-author {
         color: map-get($map: $palete, $key: "white");
-        margin-top: 1em;
-        font-weight: 700;
-        font-size: 1.2em;
+        margin-top: .5em;
+        font-weight: 800;
+        font-size: 1.35em;
+        letter-spacing: .1em;
 
         &--violet {
             color: map-get($map: $palete, $key: "primary");
-            border-bottom: .2em solid map-get($map: $palete, $key: "primary");
-        }
-
-        &--bordertop {
-            border-top: .2em solid map-get($map: $palete, $key: "white");
         }
     }
 }
