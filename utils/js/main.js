@@ -34,7 +34,6 @@ const renderProduct = ({name, price}, element) => {
 const renderAllProducts = () => {
     products.forEach(element  => {
         renderProduct(Product, element)
-        localStorage.setItem("products", Product)
     });
 }
 
@@ -60,7 +59,6 @@ const renderProductInCart = ({name, price}, element) => {
 const renderAllProductsInCart = () => {
     cart.forEach(element  => {
         renderProductInCart(cart, element)
-        localStorage.setItem("cart", cart)
     });
 }
 
