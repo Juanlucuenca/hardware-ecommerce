@@ -16,7 +16,6 @@ const cart = []
 
 
 // ----------- Renderizar los productos ---------------
-
 const renderProduct = ({name, price}, element) => {
     const productsView = document.querySelector('#productsView')
     const renderTheProduct = 
@@ -34,6 +33,7 @@ const renderProduct = ({name, price}, element) => {
 const renderAllProducts = () => {
     products.forEach(element  => {
         renderProduct(Product, element)
+        localStorage.setItem("products", Product)
     });
 }
 
@@ -41,58 +41,48 @@ renderAllProducts()
 
 // ----------- ./Renderizar los productos ---------------
 
+
+
 // ----------- Render Product In Cart -----------------
-
-const renderProductInCart = ({name, price}, element) => {
+const renderProductInCart = (item) => {
+    console.log(item.price)
     const itemContainer = document.querySelector('#carritoModal-itemsContainer')
-    const renderTheProductCart = 
-        itemContainer.innerHTML += `
-            <div class="item">
-                <div class="item-name">${element.name}</div>
-                <div class="item-price">${element.price}</div>
-            </div>
-        `
-
-    return renderTheProductCart
+    
+    itemContainer.innerHTML += `
+    <div class="item">
+    <div class="item-name">${item.name}</div>
+    <div class="item-price">${item.price}</div>
+</div>
+    `
 }
-
-const renderAllProductsInCart = () => {
-    cart.forEach(element  => {
-        renderProductInCart(cart, element)
-    });
-}
-
-
 // ----------- ./Render Product In Cart -----------------
 
 
 
 // ----------- Agregar al carrito ---------------
-const iconCart = document.querySelector('#cart-cantidad')
+const iconCartCant = document.querySelector('#cart-cantidad')
+const iconCart = document.querySelector('#cart')
 
 const addItemToCart = (buttonIndex) =>  {
+
+
+    const itemsInCart = (cart.length + 1)
     const isValidItem = products.find((_, productIndex) => productIndex === buttonIndex)
 
-    const incrementItemInCar = () => {iconCart.textContent = cart.length}
+    const incrementItemInCar = () => {iconCartCant.textContent = itemsInCart}
+    const addProducInCart = () => {cart.push(isValidItem)}
     
     if (isValidItem) {
-        cart.push(isValidItem)
+        addProducInCart()
         incrementItemInCar()
-
-
-
-
-
+        renderProductInCart(isValidItem)
         console.log(cart)
-    } else {
-        console.log('cant add selected item')
     }
-
 }
 
 const botones = document.querySelectorAll('.button-addCart')
 botones.forEach( (element, index) => {
-    element.addEventListener('click', () => addItemToCart(index))
+    element.addEventListener('click', () => {addItemToCart(index)})
 })
 
 // ----------- ./Agregar al carrito ---------------
@@ -100,7 +90,7 @@ botones.forEach( (element, index) => {
 
 
 // ------------------ Open Moda Cart ------------------
-const closeModal               = document.querySelector('#carritoModal-close')
+const closeModal = document.querySelector('#carritoModal-close')
 
 const openAndCloseModalCart = (action) => {
 
@@ -113,6 +103,8 @@ const openAndCloseModalCart = (action) => {
 
         shadeBlackBackground.classList.add('black-shade')
         shadeBlackBackground.classList.remove('black-shade--hidden')
+
+
     }
 
     if (action === 'close') {
@@ -126,11 +118,10 @@ const openAndCloseModalCart = (action) => {
 
 iconCart.addEventListener('click', () => {
     openAndCloseModalCart("open")
-    renderAllProductsInCart()
+
 })
 
 closeModal.addEventListener('click', () => openAndCloseModalCart("close"))
-
 // ------------------ ./Open Moda Cart ------------------
 
 
