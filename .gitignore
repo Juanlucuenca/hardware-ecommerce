@@ -1,7 +1,3 @@
-#################
-## Directories
-#################
-
-dev/
-cms/core/config/
+### Format1  ###
 node_modules/
+node/
