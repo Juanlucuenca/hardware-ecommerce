@@ -1,22 +1,45 @@
-class Product {
-    constructor(name, price, stock) {
-        this.name = name,
-        this.price = price,
-        this.stock = stock
-    }
-}
-
 const products = [
-    new Product('RTX 3060', 120000, true),
-    new Product('RTX 3070', 120000, true),
-    new Product('RTX 3080', 120000, true)
+    {
+        id: 1,
+        name: "RTX 3060",
+        price: 335
+    },
+    {
+        id: 2,
+        name: "RTX 3070",
+        price: 465
+    },
+    {
+        id: 3,
+        name: "RTX 3080",
+        price: 769 
+    }
 ]
 
-const cart = []
+const saveLocal = () => {
+    localStorage.setItem("carrito", JSON.stringify(cart))
+}
 
+const cart = JSON.parse(localStorage.getItem("carrito")) || []
 
 // ----------- Renderizar los productos ---------------
-const renderProduct = ({name, price}, element) => {
+async function setItemsPrice() {
+    let dolarBlue;
+    await fetch("https://www.dolarsi.com/api/api.php?type=valoresprincipales")
+                        .then(res => res.json())
+                        .then(dolares => {
+                            dolarBlue = parseInt(dolares[1].casa.compra) 
+                            
+                            products.forEach(e => {
+                                e.price = e.price * dolarBlue
+                            })
+                        })
+    
+}
+
+setItemsPrice()
+
+const renderProduct = (_, element) => {
     const productsView = document.querySelector('#productsView')
     const renderTheProduct = 
         productsView.innerHTML += `
@@ -32,27 +55,52 @@ const renderProduct = ({name, price}, element) => {
 
 const renderAllProducts = () => {
     products.forEach(element  => {
-        renderProduct(Product, element)
-        localStorage.setItem("products", Product)
+        renderProduct(products, element)
     });
 }
 
 renderAllProducts()
+
 
 // ----------- ./Renderizar los productos ---------------
 
 
 
 // ----------- Render Product In Cart -----------------
+const itemContainer = document.querySelector('#carritoModal-itemsContainer')
+const iconCartCant = document.querySelector('#cart-cantidad')
+
+
+const recoverCart = () => {
+    if (cart != []) {
+    cart.forEach(element => {
+        itemContainer.innerHTML += `
+        <div class="item">
+        <div class="item-name">${element.name}</div>
+        <div class="item-price">${element.price}</div>
+        </div>
+        `
+    });
+    }
+}
+
+const recoverCartCant = () => {
+    if (JSON.parse(localStorage.getItem('carritoLenght') === null )) {
+        iconCartCant.textContent = 0;
+    } else {
+        iconCartCant.textContent = JSON.parse(localStorage.getItem('carritoLenght')) 
+    }
+}
+
+recoverCartCant()
+recoverCart()
+
 const renderProductInCart = (item) => {
-    console.log(item.price)
-    const itemContainer = document.querySelector('#carritoModal-itemsContainer')
-    
     itemContainer.innerHTML += `
     <div class="item">
     <div class="item-name">${item.name}</div>
     <div class="item-price">${item.price}</div>
-</div>
+    </div>
     `
 }
 // ----------- ./Render Product In Cart -----------------
@@ -60,23 +108,31 @@ const renderProductInCart = (item) => {
 
 
 // ----------- Agregar al carrito ---------------
-const iconCartCant = document.querySelector('#cart-cantidad')
+
 const iconCart = document.querySelector('#cart')
+let itemsInCart;
 
 const addItemToCart = (buttonIndex) =>  {
+    let itemsInCart = (cart.length + 1)
 
+    const setCantCarritoInLocalStorage = localStorage.setItem('carritoLenght', JSON.stringify(itemsInCart))
 
-    const itemsInCart = (cart.length + 1)
     const isValidItem = products.find((_, productIndex) => productIndex === buttonIndex)
 
-    const incrementItemInCar = () => {iconCartCant.textContent = itemsInCart}
-    const addProducInCart = () => {cart.push(isValidItem)}
+    const incrementItemInCar = () => {iconCartCant.textContent = JSON.parse(localStorage.getItem('carritoLenght'))}
+
+    const addProducInCart = () => {
+        cart.push(isValidItem)
+        renderProductInCart(isValidItem)
+        saveLocal()
+
+    }
     
     if (isValidItem) {
         addProducInCart()
         incrementItemInCar()
-        renderProductInCart(isValidItem)
         console.log(cart)
+
     }
 }
 
@@ -126,6 +182,51 @@ closeModal.addEventListener('click', () => openAndCloseModalCart("close"))
 
 
 
+// ------------------- Finalizar compra ---------------------
+
+const buttomCheckout = document.querySelector('#carritoModal-checkout')
+
+const checkout = () => {
+    swal({
+        title: "Estas seguro que quieres finalizar la compra",
+        text: "Ten encuenta que si le das que si se realizara automaticamente el pago",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+    .then((willDelete) => {
+        if (willDelete) {
+        swal("Felicidadaes! acabas de finalizar la compra", {
+            icon: "success",
+        });
+
+        cart.length = 0
+        openAndCloseModalCart("close")
+        localStorage.clear()
+        itemContainer.innerHTML = ``
+        iconCartCant.textContent = 0
+
+        }
+    });
+};
+
+    buttomCheckout.addEventListener('click', () => {
+        if(cart.length > 0) {
+            checkout()
+        } else {
+            swal({
+                title: "No tienes nada en el carrito",
+                text: "Ve a comprar algo!",
+                icon: "error",
+            });
+        }
+    })
+
+
+// ------------------- ./Finalizar compra ---------------------
 
 
 
+// ------------------- Tomar valor del dolar ------------------
+
+// ------------------- Tomar valor del dolar ------------------
