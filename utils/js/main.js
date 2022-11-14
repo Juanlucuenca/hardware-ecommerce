@@ -34,6 +34,7 @@ async function setItemsPrice() {
                                 e.price = e.price * dolarBlue
                             })
                         })
+                        .catch(err => console.log(err))
     
 }
 
