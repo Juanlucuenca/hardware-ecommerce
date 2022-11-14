@@ -1,3 +1,6 @@
+
+
+
 const products = [
     {
         id: 1,
@@ -16,6 +19,20 @@ const products = [
     }
 ]
 
+async function setItemsPrice() {
+    const result = await fetch("https://www.dolarsi.com/api/api.php?type=valoresprincipales")
+    const dolares = await result.json()
+    const dolarBlue = parseInt(dolares[1].casa.compra) 
+
+    products.forEach(e => {
+        e.price = e.price * dolarBlue
+    })
+
+    renderAllProducts()
+}
+
+setItemsPrice()
+
 const saveLocal = () => {
     localStorage.setItem("carrito", JSON.stringify(cart))
 }
@@ -23,24 +40,9 @@ const saveLocal = () => {
 const cart = JSON.parse(localStorage.getItem("carrito")) || []
 
 // ----------- Renderizar los productos ---------------
-async function setItemsPrice() {
-    let dolarBlue;
-    await fetch("https://www.dolarsi.com/api/api.php?type=valoresprincipales")
-                        .then(res => res.json())
-                        .then(dolares => {
-                            dolarBlue = parseInt(dolares[1].casa.compra) 
-                            
-                            products.forEach(e => {
-                                e.price = e.price * dolarBlue
-                            })
-                        })
-                        .catch(err => console.log(err))
-    
-}
-
-setItemsPrice()
 
 const renderProduct = (_, element) => {
+
     const productsView = document.querySelector('#productsView')
     const renderTheProduct = 
         productsView.innerHTML += `
@@ -59,9 +61,6 @@ const renderAllProducts = () => {
         renderProduct(products, element)
     });
 }
-
-renderAllProducts()
-
 
 // ----------- ./Renderizar los productos ---------------
 
@@ -137,10 +136,13 @@ const addItemToCart = (buttonIndex) =>  {
     }
 }
 
-const botones = document.querySelectorAll('.button-addCart')
-botones.forEach( (element, index) => {
-    element.addEventListener('click', () => {addItemToCart(index)})
-})
+setTimeout(() => {
+    const botones = document.querySelectorAll('.button-addCart');
+    console.log(botones)
+    botones.forEach( (element, index) => {
+        element.addEventListener('click', () => {addItemToCart(index)})
+    })
+}, 1000)
 
 // ----------- ./Agregar al carrito ---------------
 
@@ -225,9 +227,3 @@ const checkout = () => {
 
 
 // ------------------- ./Finalizar compra ---------------------
-
-
-
-// ------------------- Tomar valor del dolar ------------------
-
-// ------------------- Tomar valor del dolar ------------------
