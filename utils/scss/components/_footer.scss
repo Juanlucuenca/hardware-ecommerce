@@ -2,7 +2,7 @@
     margin-bottom: 1em;
     @include flexible(flex, column, nowrap, center, center);
 
-    &-author {
+    &__author {
         color: map-get($map: $palete, $key: "white");
         margin-top: .5em;
         font-weight: 800;

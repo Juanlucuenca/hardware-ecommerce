@@ -6,17 +6,17 @@
 
     @include flexible(flex, column, wrap, center, center);
 
-    &-wrapper {
+    &__wrapper {
         text-align: left;
     }
 
-    &-title {
+    &__title {
         font-weight: 900;
         font-size: 6em;
         color: map-get($map: $palete, $key: "white");
     }
 
-    &-subtitle {
+    &__subtitle {
         font-weight: 300;
         font-size: 1.5em;
         opacity: .6;

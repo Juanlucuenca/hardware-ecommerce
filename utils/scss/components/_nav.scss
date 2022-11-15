@@ -1,31 +1,27 @@
-.nav {
+.navbar {
     width: 100%;
     min-height: 10vh;
     padding: 1em 3em;
-
     @include flexible(flex, row, wrap, space-between, center);
 
-    &-logo {
+
+    &__brand {
         @include flexible(flex, row, wrap, center, center);
     }
-
-    .logohs {
-        background-color: map-get($map: $palete, $key: "white");
-        padding: .4em .6em;
-        border-radius: 80px;
-        font-weight: 900;
-        font-size: 1em;
+    
+    &__nav {
+        @include flexible(flex, row, wrap, space-around, center);
     }
 
-    .logohs2 {
-        color: map-get($map: $palete, $key: "white");  
-        padding-left: .3em; 
-        font-weight: 900;
-        font-size: 1.5em;
-        letter-spacing: .05em;
+    &__item {
+        margin: 0 1em;
+        font-weight: 300;
+        font-size: 1.2em;
+        color: map-get($map: $palete, $key: "white");
     }
 
-    &-cart {
+
+    &__cart {
         background-color: map-get($map: $palete, $key: "primary");
         border-radius: 25%;
         padding: .5em;
@@ -33,17 +29,6 @@
         @include flexible(flex, row, wrap, space-around, center);
         gap: 5px;
     }
-}
-
-.nav-routs {
-    @include flexible(flex, row, wrap, space-around, center);
-}
-
-.nav-links {
-    margin: 0 1em;
-    font-weight: 300;
-    font-size: 1.2em;
-    color: map-get($map: $palete, $key: "white");
 }
 
 

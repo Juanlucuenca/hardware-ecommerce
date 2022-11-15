@@ -1,26 +1,26 @@
-.css-selector {
+.animated-gradient {
     background: linear-gradient(127deg, #1c6758, #434040);
     background-size: 400% 400%;
 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    -webkit-animation: AnimationName 8s ease infinite;
-    -moz-animation: AnimationName 8s ease infinite;
-    animation: AnimationName 8s ease infinite;
+    -webkit-animation: greenGradientAnimate 8s ease infinite;
+    -moz-animation: greenGradientAnimate 8s ease infinite;
+    animation: greenGradientAnimate 8s ease infinite;
 }
 
-@-webkit-keyframes AnimationName {
+@-webkit-keyframes greenGradientAnimate {
     0%{background-position:0% 17%}
     50%{background-position:100% 84%}
     100%{background-position:0% 17%}
 }
-@-moz-keyframes AnimationName {
+@-moz-keyframes greenGradientAnimate {
     0%{background-position:0% 17%}
     50%{background-position:100% 84%}
     100%{background-position:0% 17%}
 }
-@keyframes AnimationName {
+@keyframes greenGradientAnimate {
     0%{background-position:0% 17%}
     50%{background-position:100% 84%}
     100%{background-position:0% 17%}

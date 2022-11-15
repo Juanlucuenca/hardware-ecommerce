@@ -50,10 +50,10 @@ const renderProduct = (_, element) => {
     const renderTheProduct = 
         productsView.innerHTML += `
             <div class="productItem">
-                <div class="productItem-name">${element.name}</div>
-                <div class="productItem-price">${element.price}</div>
-                <img src="${element.imgUrl}" alt="">
-                <button id = "button-addCart" class="button-addCart">Add to cart</button>
+                <img class="productItem__img" src="${element.imgUrl}" alt="">
+                <div class="productItem__price">$ ${element.price}</div>
+                <div class="productItem__name">${element.name}</div>
+                <button id = "button-addCart" class="productItem__button">Agregar al carrito</button>
             </div>
         `
 
