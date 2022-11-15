@@ -1,7 +1,7 @@
 .producsection {
-    min-height: 80vh;
+    min-height: 70vh;
 
-    @include flexible(flex, column, wrap, center, center);
+    @include flexible(flex, column, wrap, flex-start, center);
 
     &__title {
         font-weight: 400;

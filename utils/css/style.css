@@ -150,23 +150,19 @@ body {
 .productItem {
   background: #1c1c1c;
   width: 12em;
-  height: 17em;
+  height: 20em;
   border-radius: 5%;
-  margin: 2em;
+  margin: 1.5em;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center; }
-  .productItem__name {
-    font-weight: 600;
-    font-size: 1.1em;
-    color: #1C6758;
-    align-self: flex-end; }
-  .productItem__price {
-    font-weight: 600;
-    font-size: 1.1em;
-    color: #1C6758;
-    align-self: flex-end; }
+  .productItem__info {
+    width: 100%;
+    text-align: center;
+    font-weight: 400;
+    font-size: 1em;
+    color: #EEF2E6; }
   .productItem__button {
     background-color: #1C6758;
     width: 100%;
@@ -180,22 +176,24 @@ body {
     font-size: 1.1em; }
 
 .footer {
+  width: 100%;
   margin-bottom: 1em;
   display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
+  flex-flow: row nowrap;
+  justify-content: space-around;
   align-items: center; }
   .footer__author {
-    color: #EEF2E6;
-    margin-top: .5em;
-    font-weight: 800;
-    font-size: 1.35em;
-    letter-spacing: .1em; }
-    .footer__author--violet {
-      color: #1C6758; }
+    color: #1C6758;
+    font-weight: 300;
+    font-size: 1em;
+    text-transform: lowercase;
+    letter-spacing: .02em;
+    opacity: .8; }
+    .footer__author--white {
+      color: #EEF2E6;
+      border-bottom: 1px solid #EEF2E6; }
 
 .rrss {
-  width: 100%;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -208,10 +206,10 @@ body {
     color: #EEF2E6; }
 
 .producsection {
-  min-height: 80vh;
+  min-height: 70vh;
   display: flex;
   flex-flow: column wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center; }
   .producsection__title {
     font-weight: 400;
@@ -360,7 +358,7 @@ body {
   height: 100vh;
   width: 100%;
   background-color: #181818;
-  line-height: 4em;
+  line-height: 4.5em;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
@@ -369,7 +367,7 @@ body {
     text-align: left; }
   .header__title {
     font-weight: 900;
-    font-size: 6em;
+    font-size: 7em;
     color: #EEF2E6; }
   .header__subtitle {
     font-weight: 300;

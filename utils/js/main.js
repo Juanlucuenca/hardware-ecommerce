@@ -51,8 +51,8 @@ const renderProduct = (_, element) => {
         productsView.innerHTML += `
             <div class="productItem">
                 <img class="productItem__img" src="${element.imgUrl}" alt="">
-                <div class="productItem__price">$ ${element.price}</div>
-                <div class="productItem__name">${element.name}</div>
+                <div class="productItem__info">$ ${element.price}</div>
+                <div class="productItem__info">${element.name}</div>
                 <button id = "button-addCart" class="productItem__button">Agregar al carrito</button>
             </div>
         `

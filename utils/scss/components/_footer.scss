@@ -1,16 +1,20 @@
 .footer {
+    width: 100%;
     margin-bottom: 1em;
-    @include flexible(flex, column, nowrap, center, center);
+    @include flexible(flex, row, nowrap, space-around, center);
 
     &__author {
-        color: map-get($map: $palete, $key: "white");
-        margin-top: .5em;
-        font-weight: 800;
-        font-size: 1.35em;
-        letter-spacing: .1em;
+        
+        color: map-get($map: $palete, $key: "primary");
+        font-weight: 300;
+        font-size: 1em;
+        text-transform: lowercase;
+        letter-spacing: .02em;
+        opacity: .8;
 
-        &--violet {
-            color: map-get($map: $palete, $key: "primary");
+        &--white {
+            color: map-get($map: $palete, $key: "white");
+            border-bottom: 1px solid map-get($map: $palete, $key: "white");
         }
     }
 }

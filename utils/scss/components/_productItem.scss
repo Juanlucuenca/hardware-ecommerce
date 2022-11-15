@@ -1,28 +1,18 @@
 .productItem{
     background: #1c1c1c;
     width: 12em;
-    height: 17em;
+    height: 20em;
     border-radius: 5%;
-    margin: 2em;
+    margin: 1.5em;
 
     @include flexible(flex, row, wrap, space-around, center);
 
-    &__name {
-        font-weight: 600;
-        font-size: 1.1em;
-        color: map-get($map: $palete, $key: "primary");
-        align-self: flex-end;
-    }
-    
-
-    &__price {
-        font-weight: 600;
-        font-size: 1.1em;
-        color: map-get($map: $palete, $key: "primary");
-        align-self: flex-end;
-    }
-
-    &__img {
+    &__info {
+        width: 100%;
+        text-align: center;
+        font-weight: 400;
+        font-size: 1em;
+        color: map-get($map: $palete, $key: "white");
     }
 
     &__button {
