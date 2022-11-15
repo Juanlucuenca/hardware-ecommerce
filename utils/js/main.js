@@ -5,19 +5,19 @@ const products = [
     {
         id: 1,
         name: "RTX 3060",
-        imgUrl: "./utils/img/rtx3060.png",
+        imgUrl: "./utils/img/rtx3060_1000x1000.png",
         price: 335
     },
     {
         id: 2,
         name: "RTX 3070",
-        imgUrl: "./utils/img/rtx3070.png",
+        imgUrl: "./utils/img/rtx3070_1000x1000.png",
         price: 465
     },
     {
         id: 3,
         name: "RTX 3080",
-        imgUrl: "./utils/img/rtx3080.png",
+        imgUrl: "./utils/img/rtx3080_1000x1000.png",
         price: 769 
     }
 ]
