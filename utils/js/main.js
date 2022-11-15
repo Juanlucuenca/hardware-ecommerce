@@ -53,7 +53,7 @@ const renderProduct = (_, element) => {
                 <img class="productItem__img" src="${element.imgUrl}" alt="">
                 <div class="productItem__info">$ ${element.price}</div>
                 <div class="productItem__info">${element.name}</div>
-                <button id = "button-addCart" class="productItem__button">Agregar al carrito</button>
+                <button class="productItem__button">Agregar al carrito</button>
             </div>
         `
 
@@ -80,8 +80,9 @@ const recoverCart = () => {
     cart.forEach(element => {
         itemContainer.innerHTML += `
         <div class="item">
+        <img class="item-img" src="${element.imgUrl}" alt="">
         <div class="item-name">${element.name}</div>
-        <div class="item-price">${element.price}</div>
+        <div class="item-price">$ ${element.price}</div>
         </div>
         `
     });
@@ -102,8 +103,9 @@ recoverCart()
 const renderProductInCart = (item) => {
     itemContainer.innerHTML += `
     <div class="item">
+    <img class="item-img" src="${item.imgUrl}" alt="">
     <div class="item-name">${item.name}</div>
-    <div class="item-price">${item.price}</div>
+    <div class="item-price">$ ${item.price}</div>
     </div>
     `
 }
@@ -141,12 +143,12 @@ const addItemToCart = (buttonIndex) =>  {
 }
 
 setTimeout(() => {
-    const botones = document.querySelectorAll('.button-addCart');
+    const botones = document.querySelectorAll('.productItem__button');
     console.log(botones)
     botones.forEach( (element, index) => {
         element.addEventListener('click', () => {addItemToCart(index)})
     })
-}, 1000)
+}, 2000)
 
 // ----------- ./Agregar al carrito ---------------
 

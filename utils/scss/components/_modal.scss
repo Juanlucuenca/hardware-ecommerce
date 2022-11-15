@@ -4,9 +4,12 @@
 }
 
 .carritoModal{
-    position: absolute;
-    background-color: map-get($map: $palete, $key: "primary");
-    width: 60%;
+    position: fixed;
+    background-color: #1c1c1c;
+    width: 45em;
+    height: 45em;
+    border-radius: 10px;
+    color: map-get($map: $palete, $key: "white");
 
     left: 50%;
     top: 50%;
@@ -14,46 +17,59 @@
 
     z-index: 10;
 
+    &-buttom {
+        background-color: map-get($map: $palete, $key: "primary");
+        padding: .5em;
+        border-radius: 10px;
+        color: map-get($map: $palete, $key: "black");
+        cursor: pointer;
+    }
+
+    // @include flexible(flex, column, wrap, space-between, space-around);
+
     &-nav {
+        height: 10%;
         padding: 1em 1.5em;
-        background-color: lightblue;
         @include flexible(flex, row, wrap, space-between, center);
     }
 
     &-itemsContainer {
-        width: 100%;
+        height: 80%;
         padding: 1em;
-        max-height: 25em;
-        overflow-y: scroll;
-        background-color: lightcoral;
+        overflow-y: hidden;
         @include flexible(flex, column, nowrap, flex-start, flex-start);
     }
 
     &-footer {
-        
+        height: 10%;
         padding: 1em 1.5em;
-        background-color: lightgreen;
     }
 }
 
 .item {
     width: 100%;
     padding: 1em;
-    background-color: aqua;
     margin: .5em 0;
-    @include flexible(flex, row, wrap, center, center);
+    @include flexible(flex, row, wrap, space-around, center);
 
     &-name {
-        background-color: aquamarine;
+
+    }
+
+    &-img {
+        width: 6em;
     }
 
     &-price {
-        background-color: antiquewhite;
+
     }
 }
 
+
+
+
 .black-shade {
-    position: absolute;
+    position: fixed;
     background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
     height: 100%;
