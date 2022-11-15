@@ -5,16 +5,19 @@ const products = [
     {
         id: 1,
         name: "RTX 3060",
+        imgUrl: "./utils/img/rtx3060.png",
         price: 335
     },
     {
         id: 2,
         name: "RTX 3070",
+        imgUrl: "./utils/img/rtx3070.png",
         price: 465
     },
     {
         id: 3,
         name: "RTX 3080",
+        imgUrl: "./utils/img/rtx3080.png",
         price: 769 
     }
 ]
@@ -49,6 +52,7 @@ const renderProduct = (_, element) => {
             <div class="productItem">
                 <div class="productItem-name">${element.name}</div>
                 <div class="productItem-price">${element.price}</div>
+                <img src="${element.imgUrl}" alt="">
                 <button id = "button-addCart" class="button-addCart">Add to cart</button>
             </div>
         `
