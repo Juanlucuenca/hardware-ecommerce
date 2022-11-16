@@ -36,13 +36,15 @@
     &-itemsContainer {
         height: 80%;
         padding: 1em;
-        overflow-y: hidden;
+        overflow-y: scroll;
         @include flexible(flex, column, nowrap, flex-start, flex-start);
     }
 
     &-footer {
         height: 10%;
         padding: 1em 1.5em;
+
+        @include flexible(flex, row, nowrap, space-between, center);
     }
 }
 
